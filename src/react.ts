@@ -2,6 +2,7 @@ import {
 	type CSSProperties,
 	type MutableRefObject,
 	type PropsWithChildren,
+	type ReactElement,
 	type Ref,
 	createElement,
 	useEffect,
@@ -56,7 +57,7 @@ export function GlowCard({
 	style,
 	children,
 	ref,
-}: GlowCardProps) {
+}: GlowCardProps): ReactElement {
 	ensureRegistered();
 
 	const innerRef = useRef<HTMLElement | null>(null);
@@ -112,7 +113,7 @@ export interface GlowCardGroupProps extends PropsWithChildren {
 	style?: CSSProperties;
 }
 
-export function GlowCardGroup({ children, className, style }: GlowCardGroupProps) {
+export function GlowCardGroup({ children, className, style }: GlowCardGroupProps): ReactElement {
 	ensureRegistered();
 	return createElement("glow-card-group", { class: className, style }, children);
 }
