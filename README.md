@@ -2,8 +2,6 @@
 
 Cursor-tracking glow border cards. Framework-agnostic Web Component. Zero dependencies.
 
-<!-- TODO: Add GIF demo here -->
-
 ## Features
 
 - **6 glow variants** — border, background, spotlight, rainbow, glow-line, pulse
@@ -11,7 +9,7 @@ Cursor-tracking glow border cards. Framework-agnostic Web Component. Zero depend
 - **Card groups** — proximity glow across sibling cards (the "Stripe dashboard" effect)
 - **CSS Custom Properties** — full control over colors, size, blur, intensity, radius
 - **Zero dependencies** — just a `<script>` tag or `npm install`
-- **Tiny** — ~1.6KB gzipped (core), ~536B (React wrapper)
+- **Tiny** — ~1.8KB gzipped (core), ~2.1KB (React wrapper incl. core)
 
 ## Install
 
@@ -103,6 +101,36 @@ glow-card {
   style={{ padding: 24 }}  // Additional inline styles
 />
 ```
+
+## React Card Group
+
+```tsx
+import { GlowCard, GlowCardGroup } from 'glow-card/react';
+
+function Dashboard() {
+  return (
+    <GlowCardGroup className="grid" style={{ gap: '1.5rem' }}>
+      <GlowCard color="#6366f1">
+        <div className="card">Card A</div>
+      </GlowCard>
+      <GlowCard color="#6366f1">
+        <div className="card">Card B</div>
+      </GlowCard>
+      <GlowCard color="#6366f1">
+        <div className="card">Card C</div>
+      </GlowCard>
+    </GlowCardGroup>
+  );
+}
+```
+
+### GlowCardGroup Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `className` | `string` | Additional CSS class |
+| `style` | `CSSProperties` | Additional inline styles |
+| `children` | `ReactNode` | GlowCard components |
 
 ## Browser Support
 
