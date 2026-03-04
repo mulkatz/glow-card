@@ -91,8 +91,8 @@ export const baseStyles = /* css */ `
 		mask-composite: exclude;
 		background: conic-gradient(
 			from calc(atan2(
-				var(--_glow-y) - 0.5,
-				var(--_glow-x) - 0.5
+				calc(var(--_glow-y) - 0.5),
+				calc(var(--_glow-x) - 0.5)
 			)),
 			transparent 0%,
 			var(--_glow-color) 10%,
@@ -118,8 +118,8 @@ export const baseStyles = /* css */ `
 		mask-composite: exclude;
 		background: conic-gradient(
 			from calc(atan2(
-				var(--_glow-y) - 0.5,
-				var(--_glow-x) - 0.5
+				calc(var(--_glow-y) - 0.5),
+				calc(var(--_glow-x) - 0.5)
 			)) at
 				calc(var(--_glow-x) * 100%)
 				calc(var(--_glow-y) * 100%),
