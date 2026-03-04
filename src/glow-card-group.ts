@@ -29,6 +29,8 @@ export class GlowCardGroupElement extends HTMLElement {
 			if (card.hasAttribute("disabled")) continue;
 
 			const rect = card.getBoundingClientRect();
+			if (rect.width === 0 || rect.height === 0) continue;
+
 			const x = (e.clientX - rect.left) / rect.width;
 			const y = (e.clientY - rect.top) / rect.height;
 
