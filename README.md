@@ -106,7 +106,7 @@ glow-card {
 
 ## Browser Support
 
-Works in all modern browsers (Chrome 77+, Firefox 63+, Safari 13.1+, Edge 79+).
+Works in all modern browsers (Chrome 111+, Firefox 108+, Safari 15.4+, Edge 111+). The glow-line and rainbow variants use CSS `atan2()` trigonometric functions which require these minimum versions.
 
 ## License
 
