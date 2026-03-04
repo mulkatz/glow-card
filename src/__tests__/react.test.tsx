@@ -76,8 +76,9 @@ describe("GlowCard", () => {
 				Hello
 			</GlowCard>,
 		);
-		expect(element).not.toBeNull();
-		expect(element?.tagName.toLowerCase()).toBe("glow-card");
+		const refElement = element as HTMLElement | null;
+		expect(refElement).not.toBeNull();
+		expect(refElement?.tagName.toLowerCase()).toBe("glow-card");
 	});
 
 	it("sets disabled attribute when disabled=true", () => {
