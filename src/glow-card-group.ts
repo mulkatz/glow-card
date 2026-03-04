@@ -4,10 +4,23 @@ export class GlowCardGroupElement extends HTMLElement {
 	static readonly tagName = "glow-card-group";
 
 	#abortController: AbortController | null = null;
+	#observer: MutationObserver | null = null;
+	#cards: GlowCardElement[] = [];
+
+	#updateCards(): void {
+		this.#cards = Array.from(this.querySelectorAll("*")).filter(
+			(el): el is GlowCardElement => el instanceof GlowCardElement,
+		);
+	}
 
 	connectedCallback(): void {
 		this.#abortController = new AbortController();
 		const { signal } = this.#abortController;
+
+		this.#updateCards();
+
+		this.#observer = new MutationObserver(() => this.#updateCards());
+		this.#observer.observe(this, { childList: true, subtree: true });
 
 		this.addEventListener("pointermove", this.#onPointerMove, { signal });
 		this.addEventListener("pointerleave", this.#onPointerLeave, { signal });
@@ -16,18 +29,13 @@ export class GlowCardGroupElement extends HTMLElement {
 	disconnectedCallback(): void {
 		this.#abortController?.abort();
 		this.#abortController = null;
-	}
-
-	#getCards(): GlowCardElement[] {
-		return Array.from(this.querySelectorAll("*")).filter(
-			(el): el is GlowCardElement => el instanceof GlowCardElement,
-		);
+		this.#observer?.disconnect();
+		this.#observer = null;
+		this.#cards = [];
 	}
 
 	#onPointerMove = (e: PointerEvent): void => {
-		const cards = this.#getCards();
-
-		for (const card of cards) {
+		for (const card of this.#cards) {
 			if (card.hasAttribute("disabled")) continue;
 
 			const rect = card.getBoundingClientRect();
@@ -50,8 +58,7 @@ export class GlowCardGroupElement extends HTMLElement {
 	};
 
 	#onPointerLeave = (): void => {
-		const cards = this.#getCards();
-		for (const card of cards) {
+		for (const card of this.#cards) {
 			card.updateGlow(0.5, 0.5, 0);
 		}
 	};
