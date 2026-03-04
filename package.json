@@ -9,6 +9,10 @@
 		"type": "git",
 		"url": "https://github.com/franzs/glow-card"
 	},
+	"homepage": "https://github.com/franzs/glow-card#readme",
+	"bugs": {
+		"url": "https://github.com/franzs/glow-card/issues"
+	},
 	"keywords": [
 		"glow",
 		"card",
@@ -37,6 +41,10 @@
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"sideEffects": false,
+	"engines": {
+		"node": ">=18"
+	},
 	"files": ["dist"],
 	"scripts": {
 		"build": "tsup",
