@@ -5,7 +5,7 @@ export default defineConfig([
 		entry: {
 			index: "src/index.ts",
 		},
-		format: ["esm"],
+		format: ["esm", "cjs"],
 		dts: true,
 		sourcemap: true,
 		clean: true,
@@ -16,7 +16,7 @@ export default defineConfig([
 		entry: {
 			react: "src/react.ts",
 		},
-		format: ["esm"],
+		format: ["esm", "cjs"],
 		dts: true,
 		sourcemap: true,
 		minify: true,
