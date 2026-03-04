@@ -7,11 +7,11 @@
 	"author": "Franz Schlögel",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/franzs/glow-card"
+		"url": "https://github.com/mulkatz/glow-card"
 	},
-	"homepage": "https://github.com/franzs/glow-card#readme",
+	"homepage": "https://github.com/mulkatz/glow-card#readme",
 	"bugs": {
-		"url": "https://github.com/franzs/glow-card/issues"
+		"url": "https://github.com/mulkatz/glow-card/issues"
 	},
 	"keywords": [
 		"glow",
