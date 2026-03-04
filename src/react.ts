@@ -65,6 +65,16 @@ export function GlowCard({
 
 	const setRef = (el: HTMLElement | null) => {
 		(innerRef as MutableRefObject<HTMLElement | null>).current = el;
+		if (el) {
+			// Explicitly sync disabled as an attribute for web component compatibility.
+			// React 19 may set boolean props as properties instead of attributes,
+			// but the web component checks hasAttribute("disabled").
+			if (disabled) {
+				el.setAttribute("disabled", "");
+			} else {
+				el.removeAttribute("disabled");
+			}
+		}
 		if (typeof ref === "function") ref(el);
 		else if (ref) (ref as MutableRefObject<HTMLElement | null>).current = el;
 	};
@@ -74,7 +84,6 @@ export function GlowCard({
 		{
 			ref: setRef,
 			variant,
-			disabled: disabled || undefined,
 			class: className,
 			style: mergedStyle,
 		},
