@@ -163,6 +163,12 @@ export const baseStyles = /* css */ `
 		50% { filter: brightness(1.5); }
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		:host([variant="pulse"]) .glow-effect {
+			animation: none;
+		}
+	}
+
 	.content {
 		position: relative;
 		z-index: 1;
