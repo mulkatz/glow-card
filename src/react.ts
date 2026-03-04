@@ -4,12 +4,19 @@ import {
 	type PropsWithChildren,
 	type Ref,
 	createElement,
+	useEffect,
+	useRef,
 } from "react";
 import type { GlowVariant } from "./glow-card.js";
 import { register } from "./index.js";
 
-// Register custom elements synchronously at module load time to prevent FOUC
-register();
+let registered = false;
+function ensureRegistered(): void {
+	if (!registered && typeof customElements !== "undefined") {
+		register();
+		registered = true;
+	}
+}
 
 export interface GlowCardProps extends PropsWithChildren {
 	/** Glow effect variant */
@@ -50,6 +57,26 @@ export function GlowCard({
 	children,
 	ref,
 }: GlowCardProps) {
+	ensureRegistered();
+
+	const innerRef = useRef<HTMLElement | null>(null);
+
+	useEffect(() => {
+		const el = innerRef.current;
+		if (!el) return;
+		if (disabled) {
+			el.setAttribute("disabled", "");
+		} else {
+			el.removeAttribute("disabled");
+		}
+	}, [disabled]);
+
+	useEffect(() => {
+		const el = innerRef.current;
+		if (!el) return;
+		el.setAttribute("variant", variant);
+	}, [variant]);
+
 	const cssVars: Record<string, string> = {};
 	if (color) cssVars["--glow-color"] = color;
 	if (size !== undefined) cssVars["--glow-size"] = `${size}px`;
@@ -61,16 +88,7 @@ export function GlowCard({
 	const mergedStyle = { ...cssVars, ...style };
 
 	const setRef = (el: HTMLElement | null) => {
-		if (el) {
-			// Explicitly sync disabled as an attribute for web component compatibility.
-			// React 19 may set boolean props as properties instead of attributes,
-			// but the web component checks hasAttribute("disabled").
-			if (disabled) {
-				el.setAttribute("disabled", "");
-			} else {
-				el.removeAttribute("disabled");
-			}
-		}
+		innerRef.current = el;
 		if (typeof ref === "function") ref(el);
 		else if (ref) (ref as MutableRefObject<HTMLElement | null>).current = el;
 	};
@@ -95,5 +113,6 @@ export interface GlowCardGroupProps extends PropsWithChildren {
 }
 
 export function GlowCardGroup({ children, className, style }: GlowCardGroupProps) {
+	ensureRegistered();
 	return createElement("glow-card-group", { class: className, style }, children);
 }
