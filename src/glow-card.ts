@@ -55,6 +55,13 @@ export class GlowCardElement extends HTMLElement {
 		this.#groupParent = null;
 	}
 
+	attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void {
+		if (name === "disabled" && newValue !== null) {
+			// Reset glow when disabled
+			this.style.setProperty("--_glow-opacity", "0");
+		}
+	}
+
 	/** Update glow position from external coordinates (used by glow-card-group) */
 	updateGlow(x: number, y: number, opacity: number): void {
 		this.style.setProperty("--_glow-x", String(x));
