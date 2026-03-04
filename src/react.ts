@@ -4,7 +4,6 @@ import {
 	type PropsWithChildren,
 	type Ref,
 	createElement,
-	useRef,
 } from "react";
 import type { GlowVariant } from "./glow-card.js";
 import { register } from "./index.js";
@@ -51,8 +50,6 @@ export function GlowCard({
 	children,
 	ref,
 }: GlowCardProps) {
-	const innerRef = useRef<HTMLElement>(null);
-
 	const cssVars: Record<string, string> = {};
 	if (color) cssVars["--glow-color"] = color;
 	if (size !== undefined) cssVars["--glow-size"] = `${size}px`;
@@ -64,7 +61,6 @@ export function GlowCard({
 	const mergedStyle = { ...cssVars, ...style };
 
 	const setRef = (el: HTMLElement | null) => {
-		(innerRef as MutableRefObject<HTMLElement | null>).current = el;
 		if (el) {
 			// Explicitly sync disabled as an attribute for web component compatibility.
 			// React 19 may set boolean props as properties instead of attributes,
