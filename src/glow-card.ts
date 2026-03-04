@@ -66,6 +66,8 @@ export class GlowCardElement extends HTMLElement {
 		if (this.hasAttribute("disabled")) return;
 
 		const rect = this.getBoundingClientRect();
+		if (rect.width === 0 || rect.height === 0) return;
+
 		const x = (e.clientX - rect.left) / rect.width;
 		const y = (e.clientY - rect.top) / rect.height;
 
