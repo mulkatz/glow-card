@@ -9,7 +9,6 @@ export const baseStyles = /* css */ `
 		--_glow-color: var(--glow-color, #6366f1);
 		--_glow-size: var(--glow-size, 200px);
 		--_glow-blur: var(--glow-blur, 40px);
-		--_glow-spread: var(--glow-spread, 0px);
 		--_glow-border-width: var(--glow-border-width, 1px);
 		--_glow-intensity: var(--glow-intensity, 1);
 		--_glow-transition: var(--glow-transition, opacity 0.3s ease);
@@ -48,6 +47,7 @@ export const baseStyles = /* css */ `
 		pointer-events: none;
 		opacity: calc(var(--_glow-opacity) * var(--_glow-intensity) * 0.15);
 		transition: var(--_glow-transition);
+		filter: blur(var(--_glow-blur));
 		background: radial-gradient(
 			var(--_glow-size) circle at
 				calc(var(--_glow-x) * 100%)
@@ -64,6 +64,7 @@ export const baseStyles = /* css */ `
 		pointer-events: none;
 		opacity: calc(var(--_glow-opacity) * var(--_glow-intensity) * 0.2);
 		transition: var(--_glow-transition);
+		filter: blur(var(--_glow-blur));
 		background: radial-gradient(
 			calc(var(--_glow-size) * 0.6) circle at
 				calc(var(--_glow-x) * 100%)
