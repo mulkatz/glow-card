@@ -1,4 +1,4 @@
-import type { GlowCardElement } from "./glow-card.js";
+import { GlowCardElement } from "./glow-card.js";
 
 export class GlowCardGroupElement extends HTMLElement {
 	static readonly tagName = "glow-card-group";
@@ -19,7 +19,9 @@ export class GlowCardGroupElement extends HTMLElement {
 	}
 
 	#getCards(): GlowCardElement[] {
-		return Array.from(this.querySelectorAll("glow-card")) as GlowCardElement[];
+		return Array.from(this.querySelectorAll("*")).filter(
+			(el): el is GlowCardElement => el instanceof GlowCardElement,
+		);
 	}
 
 	#onPointerMove = (e: PointerEvent): void => {
