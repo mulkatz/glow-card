@@ -4,17 +4,13 @@ import {
 	type PropsWithChildren,
 	type Ref,
 	createElement,
-	useEffect,
 	useRef,
 } from "react";
 import type { GlowVariant } from "./glow-card.js";
+import { register } from "./index.js";
 
-let registered = false;
-function ensureRegistered() {
-	if (registered) return;
-	registered = true;
-	import("./index.js").then((m) => m.register());
-}
+// Register custom elements synchronously at module load time to prevent FOUC
+register();
 
 export interface GlowCardProps extends PropsWithChildren {
 	/** Glow effect variant */
@@ -57,10 +53,6 @@ export function GlowCard({
 }: GlowCardProps) {
 	const innerRef = useRef<HTMLElement>(null);
 
-	useEffect(() => {
-		ensureRegistered();
-	}, []);
-
 	const cssVars: Record<string, string> = {};
 	if (color) cssVars["--glow-color"] = color;
 	if (size !== undefined) cssVars["--glow-size"] = `${size}px`;
@@ -98,9 +90,5 @@ export interface GlowCardGroupProps extends PropsWithChildren {
 }
 
 export function GlowCardGroup({ children, className, style }: GlowCardGroupProps) {
-	useEffect(() => {
-		ensureRegistered();
-	}, []);
-
 	return createElement("glow-card-group", { class: className, style }, children);
 }
