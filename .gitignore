@@ -8,9 +8,15 @@ dist/
 # IDE
 .vscode/
 .idea/
+.fleet/
+.nova/
+.zed/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
 
 # OS
 .DS_Store
@@ -31,3 +37,10 @@ coverage/
 
 # npm
 *.tgz
+
+# Demo
+demo/node_modules/
+demo/dist/
+
+# Recording
+tmp-video/

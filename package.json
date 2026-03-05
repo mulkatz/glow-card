@@ -28,6 +28,7 @@
 	],
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": {
 				"types": "./dist/index.d.ts",
 				"default": "./dist/index.js"
@@ -38,6 +39,7 @@
 			}
 		},
 		"./react": {
+			"types": "./dist/react.d.ts",
 			"import": {
 				"types": "./dist/react.d.ts",
 				"default": "./dist/react.js"
@@ -55,7 +57,7 @@
 	"engines": {
 		"node": ">=18"
 	},
-	"files": ["dist"],
+	"files": ["dist", "!dist/*.map"],
 	"scripts": {
 		"build": "tsup",
 		"dev": "tsup --watch",
@@ -63,7 +65,8 @@
 		"check:fix": "biome check --write .",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"record-demo": "npx tsx scripts/record-demo.ts && ffmpeg -y -i tmp-video/*.webm -vf \"fps=12,scale=800:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=128[p];[s1][p]paletteuse=dither=bayer\" -loop 0 assets/demo.gif && rm -rf tmp-video"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.0",
@@ -73,6 +76,8 @@
 		"jsdom": "^28.1.0",
 		"tsup": "^8.3.0",
 		"typescript": "^5.7.0",
+		"playwright": "^1.50.0",
+		"tsx": "^4.19.0",
 		"vitest": "^3.0.0"
 	},
 	"peerDependencies": {
