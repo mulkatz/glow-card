@@ -1,0 +1,7 @@
+{
+	"name": "glow-card",
+	"compatibility_date": "2026-03-05",
+	"assets": {
+		"directory": "demo/dist"
+	}
+}
