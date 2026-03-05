@@ -1,6 +1,20 @@
-# glow-card
+<p align="center"><img src="./icon.png" width="120" /></p>
 
-Cursor-tracking glow border cards. Framework-agnostic Web Component. Zero dependencies.
+<h1 align="center">glow-card</h1>
+
+<p align="center">Cursor-tracking glow border cards. Framework-agnostic Web Component. Zero dependencies.</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/glow-card"><img src="https://img.shields.io/npm/v/glow-card" alt="npm version" /></a>
+  <a href="https://bundlephobia.com/package/glow-card"><img src="https://img.shields.io/bundlephobia/minzip/glow-card" alt="bundle size" /></a>
+  <a href="https://github.com/mulkatz/glow-card/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/glow-card" alt="license" /></a>
+</p>
+
+<p align="center"><img src="./assets/demo.gif" width="800" /></p>
+
+<p align="center">
+  <a href="https://glow-card.mulkatz.dev"><strong>→ Live Demo</strong></a>
+</p>
 
 ## Features
 
@@ -85,7 +99,16 @@ glow-card {
 }
 ```
 
-## React Props
+## API Reference
+
+### Web Component
+
+| Attribute | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `variant` | `string` | `"border"` | Glow variant: `border`, `background`, `spotlight`, `rainbow`, `glow-line`, `pulse` |
+| `disabled` | `boolean` | `false` | Disable the glow effect |
+
+### React — `<GlowCard>`
 
 ```tsx
 <GlowCard
@@ -102,29 +125,16 @@ glow-card {
 />
 ```
 
-## React Card Group
+### React — `<GlowCardGroup>`
 
 ```tsx
 import { GlowCard, GlowCardGroup } from 'glow-card/react';
 
-function Dashboard() {
-  return (
-    <GlowCardGroup className="grid" style={{ gap: '1.5rem' }}>
-      <GlowCard color="#6366f1">
-        <div className="card">Card A</div>
-      </GlowCard>
-      <GlowCard color="#6366f1">
-        <div className="card">Card B</div>
-      </GlowCard>
-      <GlowCard color="#6366f1">
-        <div className="card">Card C</div>
-      </GlowCard>
-    </GlowCardGroup>
-  );
-}
+<GlowCardGroup className="grid" style={{ gap: '1.5rem' }}>
+  <GlowCard color="#6366f1">...</GlowCard>
+  <GlowCard color="#6366f1">...</GlowCard>
+</GlowCardGroup>
 ```
-
-### GlowCardGroup Props
 
 | Prop | Type | Description |
 |------|------|-------------|

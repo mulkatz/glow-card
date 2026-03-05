@@ -33,7 +33,9 @@ async function wait(ms: number): Promise<void> {
 }
 
 async function smoothMove(
-	page: Awaited<ReturnType<Awaited<ReturnType<typeof chromium.launch>>["newContext"]>>["pages"] extends () => infer R
+	page: Awaited<
+		ReturnType<Awaited<ReturnType<typeof chromium.launch>>["newContext"]>
+	>["pages"] extends () => infer R
 		? R extends Array<infer P>
 			? P
 			: never
