@@ -67,15 +67,15 @@ export const baseStyles = /* css */ `
 		inset: 0;
 		border-radius: inherit;
 		pointer-events: none;
-		opacity: calc(var(--_glow-opacity) * var(--_glow-intensity) * 0.2);
+		opacity: calc(var(--_glow-opacity) * var(--_glow-intensity));
 		transition: var(--_glow-transition);
-		filter: blur(var(--_glow-blur));
 		background: radial-gradient(
 			calc(var(--_glow-size) * 0.6) circle at
 				calc(var(--_glow-x) * 100%)
 				calc(var(--_glow-y) * 100%),
-			var(--_glow-color),
-			transparent 100%
+			transparent 0%,
+			transparent 25%,
+			rgba(0, 0, 0, 0.7) 100%
 		);
 	}
 
