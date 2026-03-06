@@ -42,6 +42,7 @@ export const baseStyles = /* css */ `
 			var(--_glow-color),
 			transparent 70%
 		);
+		background-origin: border-box;
 	}
 
 	:host([variant="background"]) .glow-effect {
@@ -103,6 +104,7 @@ export const baseStyles = /* css */ `
 			var(--_glow-color) 10%,
 			transparent 20%
 		);
+		background-origin: border-box;
 	}
 
 	:host([variant="rainbow"]) .glow-effect {
@@ -134,6 +136,7 @@ export const baseStyles = /* css */ `
 			#90f,
 			#f06
 		);
+		background-origin: border-box;
 	}
 
 	:host([variant="pulse"]) .glow-effect {
@@ -159,6 +162,7 @@ export const baseStyles = /* css */ `
 			var(--_glow-color),
 			transparent 70%
 		);
+		background-origin: border-box;
 		animation: glow-pulse 2s ease-in-out infinite;
 	}
 
