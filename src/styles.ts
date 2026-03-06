@@ -14,6 +14,10 @@ export const baseStyles = /* css */ `
 		--_glow-transition: var(--glow-transition, opacity 0.3s ease);
 	}
 
+	.glow-effect {
+		z-index: 2;
+	}
+
 	:host([variant="border"]) .glow-effect,
 	:host(:not([variant])) .glow-effect {
 		position: absolute;

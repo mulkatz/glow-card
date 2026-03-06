@@ -21,16 +21,16 @@ export class GlowCardElement extends HTMLElement {
 		style.textContent = baseStyles;
 		shadow.appendChild(style);
 
-		const glow = document.createElement("div");
-		glow.classList.add("glow-effect");
-		glow.setAttribute("aria-hidden", "true");
-		shadow.appendChild(glow);
-
 		const content = document.createElement("div");
 		content.classList.add("content");
 		const slot = document.createElement("slot");
 		content.appendChild(slot);
 		shadow.appendChild(content);
+
+		const glow = document.createElement("div");
+		glow.classList.add("glow-effect");
+		glow.setAttribute("aria-hidden", "true");
+		shadow.appendChild(glow);
 	}
 
 	connectedCallback(): void {
