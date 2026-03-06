@@ -1,6 +1,6 @@
 {
 	"name": "glow-card",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Cursor-tracking glow border cards. Framework-agnostic Web Component. Zero dependencies, <1KB gzipped.",
 	"type": "module",
 	"license": "MIT",
