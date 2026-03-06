@@ -7,7 +7,6 @@ export default defineConfig([
 		},
 		format: ["esm", "cjs"],
 		dts: true,
-		sourcemap: true,
 		clean: true,
 		minify: true,
 		treeshake: true,
@@ -18,9 +17,8 @@ export default defineConfig([
 		},
 		format: ["esm", "cjs"],
 		dts: { resolve: false },
-		sourcemap: true,
 		minify: true,
 		treeshake: true,
-		external: ["react", "react/jsx-runtime"],
+		external: ["react", "react/jsx-runtime", /^\.\/.*\.js$/],
 	},
 ]);
