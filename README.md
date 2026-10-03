@@ -1,4 +1,4 @@
-<p align="center"><img src="./icon.png" width="120" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/mulkatz/glow-card/main/icon.png" width="120" alt="glow-card icon" /></p>
 
 <h1 align="center">glow-card</h1>
 
@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/glow-card"><img src="https://img.shields.io/npm/v/glow-card" alt="npm version" /></a>
-  <a href="https://github.com/mulkatz/glow-card/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/glow-card" alt="license" /></a>
+  <a href="https://github.com/mulkatz/glow-card/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license" /></a>
 </p>
 
 <p align="center"><img src="./assets/demo.gif" width="800" /></p>
