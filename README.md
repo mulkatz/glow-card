@@ -6,7 +6,6 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/glow-card"><img src="https://img.shields.io/npm/v/glow-card" alt="npm version" /></a>
-  <a href="https://bundlephobia.com/package/glow-card"><img src="https://img.shields.io/bundlephobia/minzip/glow-card" alt="bundle size" /></a>
   <a href="https://github.com/mulkatz/glow-card/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/glow-card" alt="license" /></a>
 </p>
 
